@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import '../CommonPopup.css';
 
-export const ErrorPopup = (props: { isShown: boolean }): JSX.Element => {
-    const { isShown } = props;
+export const ErrorPopup = (props: { isShown: boolean, message: string }): JSX.Element => {
+    const { isShown, message } = props;
     const [show, setIsShow] = useState(isShown);
     useEffect(() => {
        setIsShow(isShown);
@@ -12,7 +12,7 @@ export const ErrorPopup = (props: { isShown: boolean }): JSX.Element => {
     return (
         <div className={classNames('popup', { show })}>
           <span className="close" onClick={() => setIsShow(false)}>&times;</span>
-           Network Error...
+          <div>{message}</div>  
         </div>
     )
 };

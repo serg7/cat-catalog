@@ -13,6 +13,7 @@ export const Grid = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
   const [isDetailsPopupShown, setIsDetailsPopupShown] = useState(false);
   const [isErrorPopupShown, setIsErrorPopupShown] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('')
   const [cat, setCat] = useState({});
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export const Grid = (): JSX.Element => {
       }
       catch(e) {
         setIsErrorPopupShown(true);
-        console.log(e);
+        setErrorMessage((e as Error).message);
       }
     })();
   }, []);
@@ -62,7 +63,7 @@ export const Grid = (): JSX.Element => {
       </table>
       <div className={classNames('loader', { show: isLoading, hide: !isLoading })}></div>
       <DetailsPopup show={isDetailsPopupShown} cat={cat as Cat} />
-      <ErrorPopup isShown={isErrorPopupShown} />
+      <ErrorPopup isShown={isErrorPopupShown} message={errorMessage} />
     </div>
   );
 };
