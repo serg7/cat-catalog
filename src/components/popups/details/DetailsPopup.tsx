@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './DetailsPopup.css';
-import './CommonPopup.css';
+import '../CommonPopup.css';
 import featuresWithLevel from './Features';
 import Cat from './Cat';
 

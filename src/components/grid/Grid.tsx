@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import HttpService from '../../services/HttpService';
-import DetailsPopup from '../popups/DetailsPopup';
+import DetailsPopup from '../popups/details/DetailsPopup';
 import ErrorPopup from '../popups/error/ErrorPopup';
-import Cat from '../popups/Cat';
+import Cat from '../popups/details/Cat';
 import '../../App.css';
 
 const httpService = new HttpService();
