@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import '../popup/Popup.css';
-import featuresWithLevel from '../popup/Features';
-import Cat from '../popup/Cat';
+import './DetailsPopup.css';
+import './CommonPopup.css';
+import featuresWithLevel from './Features';
+import Cat from './Cat';
 
-export const Popup = (props: { show: boolean; cat: Cat }): JSX.Element => {
+export const DetailsPopup = (props: { show: boolean; cat: Cat }): JSX.Element => {
   const { cat } = props;
   const [show, setIsShow] = useState(props.show);
 
@@ -38,3 +39,5 @@ export const Popup = (props: { show: boolean; cat: Cat }): JSX.Element => {
     </div>
   );
 };
+
+export default DetailsPopup;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import HttpService from '../../services/HttpService';
-import { Popup } from '../popup/Popup';
-import Cat from '../popup/Cat';
+import DetailsPopup from '../popups/DetailsPopup';
+import ErrorPopup from '../popups/error/ErrorPopup';
+import Cat from '../popups/Cat';
 import '../../App.css';
 
 const httpService = new HttpService();
@@ -10,7 +11,8 @@ const httpService = new HttpService();
 export const Grid = (): JSX.Element => {
   const [cats, setCats] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isShownPopup, setIsShownPopup] = useState(false);
+  const [isDetailsPopupShown, setIsDetailsPopupShown] = useState(false);
+  const [isErrorPopupShown, setIsErrorPopupShown] = useState(false);
   const [cat, setCat] = useState({});
 
   useEffect(() => {
@@ -22,6 +24,7 @@ export const Grid = (): JSX.Element => {
         setIsLoading(false);
       }
       catch(e) {
+        setIsErrorPopupShown(true);
         console.log(e);
       }
     })();
@@ -33,7 +36,7 @@ export const Grid = (): JSX.Element => {
         <tr
           onClick={() => {
             setCat(cat);
-            setIsShownPopup(true);
+            setIsDetailsPopupShown(true);
           }}
           key={index}
         >
@@ -58,7 +61,8 @@ export const Grid = (): JSX.Element => {
         <tbody>{renderCats()}</tbody>
       </table>
       <div className={classNames('loader', { show: isLoading, hide: !isLoading })}></div>
-      <Popup show={isShownPopup} cat={cat as Cat} />
+      <DetailsPopup show={isDetailsPopupShown} cat={cat as Cat} />
+      <ErrorPopup isShown={isErrorPopupShown} />
     </div>
   );
 };

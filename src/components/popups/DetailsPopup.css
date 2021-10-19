@@ -1,12 +1,4 @@
-.hide {
-  display: none;
-}
-
-.show {
-  display: block !important;
-}
-
-.popup {
+/* .popup {
   display: none;
   position: absolute;
   z-index: 1;
@@ -22,19 +14,18 @@
 }
 
 .popup .popup-content {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
-
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
   background-color: #fefefe;
   width: 100%;
   -webkit-animation-name: slideIn;
   -webkit-animation-duration: 0.4s;
   animation-name: slideIn;
   animation-duration: 0.4s;
-}
+} */
 
 .popup .show {
   visibility: visible;
