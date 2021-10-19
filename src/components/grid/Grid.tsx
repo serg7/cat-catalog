@@ -15,10 +15,15 @@ export const Grid = (): JSX.Element => {
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
-      const cats = await httpService.fetchCats();
-      setCats(cats);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const cats = await httpService.fetchCats();
+        setCats(cats);
+        setIsLoading(false);
+      }
+      catch(e) {
+        console.log(e);
+      }
     })();
   }, []);
 
