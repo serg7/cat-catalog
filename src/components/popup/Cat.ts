@@ -1,5 +1,5 @@
 export type Cat = {
-  adaptability: number;
+  'adaptability': number;
   affection_level: number;
   alt_names: string;
   cfa_url: string;

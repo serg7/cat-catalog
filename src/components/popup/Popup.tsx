@@ -13,8 +13,8 @@ export const Popup = (props: { show: boolean; cat: Cat }): JSX.Element => {
   }, [props]);
 
   const renderFeatureLevels = (cat: any): JSX.Element[] =>
-    featuresWithLevel.map((feature: string) => (
-      <div className="feature-container">
+    featuresWithLevel.map((feature: string, index: number) => (
+      <div className="feature-container" key={index}>
         <div className="feature">{feature}</div>
         <div className={`level-${cat[feature]}`}></div>
       </div>

@@ -1,13 +1,10 @@
 import React from 'react';
 import Grid from './components/grid/Grid';
 
-
-function App() {
+const App = (): JSX.Element => {
   return (
     <div className="App">
-      <header className="App-header">
         <Grid />
-      </header>
     </div>
   );
 }

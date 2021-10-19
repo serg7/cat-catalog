@@ -22,8 +22,6 @@ export const Grid = (): JSX.Element => {
     })();
   }, []);
 
-  console.log(cats);
-
   const renderCats = () => {
     return cats.map((cat: Cat, index: number) => {
       return (
