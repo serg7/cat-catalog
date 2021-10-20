@@ -50,8 +50,8 @@ export const Grid = (): JSX.Element => {
   };
 
   return (
-    <div className="grid-container">
-      <table>
+    <div className='grid-container' >
+      <table data-testid="grid">
         <thead>
           <tr>
             <th>Name</th>

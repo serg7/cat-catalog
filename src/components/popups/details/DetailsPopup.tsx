@@ -22,7 +22,7 @@ export const DetailsPopup = (props: { show: boolean; cat: Cat }): JSX.Element =>
     ));
 
   return (
-    <div className={classNames('popup', { show })} id="modal">
+    <div className={classNames('popup', { show })} id="modal" data-testid="details-popup">
       <span className="close" onClick={() => setIsShow(false)}>
         &times;
       </span>

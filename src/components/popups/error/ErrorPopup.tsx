@@ -10,7 +10,7 @@ export const ErrorPopup = (props: { isShown: boolean, message: string }): JSX.El
     }, [props]);
 
     return (
-        <div className={classNames('popup', { show })}>
+        <div className={classNames('popup', { show })} data-testid="error-popup">
           <span className="close" onClick={() => setIsShow(false)}>&times;</span>
           <div>{message}</div>  
         </div>
