@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import './DetailsPopup.css';
 import '../CommonPopup.css';
 import featuresWithLevel from './Features';
 import Cat from './Cat';
 
-export const DetailsPopup = (props: { show: boolean; cat: Cat }): JSX.Element => {
-  const { cat } = props;
-  const [show, setIsShow] = useState(props.show);
-
-  useEffect(() => {
-    setIsShow(props.show);
-  }, [props]);
+export const DetailsPopup = (props: { show: boolean; setIsShown: any;  cat: Cat }): JSX.Element => {
+  const { cat, show, setIsShown } = props;
 
   const renderFeatureLevels = (cat: any): JSX.Element[] =>
     featuresWithLevel.map((feature: string, index: number) => (
@@ -23,7 +18,7 @@ export const DetailsPopup = (props: { show: boolean; cat: Cat }): JSX.Element =>
 
   return (
     <div className={classNames('popup', { show })} id="modal" data-testid="details-popup">
-      <span className="close" onClick={() => setIsShow(false)}>
+      <span className="close" onClick={() => setIsShown(false)}>
         &times;
       </span>
       <div className="popup-content">

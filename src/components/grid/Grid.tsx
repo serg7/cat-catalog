@@ -62,8 +62,9 @@ export const Grid = (): JSX.Element => {
         <tbody>{renderCats()}</tbody>
       </table>
       <div className={classNames('loader', { show: isLoading, hide: !isLoading })}></div>
-      <DetailsPopup show={isDetailsPopupShown} cat={cat as Cat} />
-      <ErrorPopup isShown={isErrorPopupShown} message={errorMessage} />
+      <DetailsPopup show={isDetailsPopupShown} setIsShown={setIsDetailsPopupShown} cat={cat as Cat} />
+      <ErrorPopup show={isErrorPopupShown} setIsShown={setIsErrorPopupShown} message={errorMessage} />
+      <div className={classNames('overlay', { show: isDetailsPopupShown, hide: !isDetailsPopupShown })}></div>
     </div>
   );
 };
