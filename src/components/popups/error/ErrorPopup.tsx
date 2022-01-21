@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import '../CommonPopup.css';
 
-export const ErrorPopup = (props: { show: boolean, setIsShown: any;  message: string }): JSX.Element => {
+export const ErrorPopup = (props: { show: boolean, setIsShown: (isShown: boolean) => void;  message: string }): JSX.Element => {
     const { show, message, setIsShown } = props;
 
 

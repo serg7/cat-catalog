@@ -16,6 +16,9 @@ export const Grid = (): JSX.Element => {
   const [errorMessage, setErrorMessage] = useState('')
   const [cat, setCat] = useState({});
 
+  console.log(cats);
+  
+
   useEffect(() => {
     (async () => {
       try {
@@ -31,9 +34,7 @@ export const Grid = (): JSX.Element => {
     })();
   }, []);
 
-  const renderCats = () => {
-    return cats.map((cat: Cat, index: number) => {
-      return (
+  const renderCats = () =>  cats.map((cat: Cat, index: number) => (
         <tr
           onClick={() => {
             setCat(cat);
@@ -41,22 +42,25 @@ export const Grid = (): JSX.Element => {
           }}
           key={index}
         >
+          <td><img className="image-thumb" src={cat?.image?.url} /></td>
           <td>{cat.name}</td>
           <td>{cat.origin}</td>
           <td>{cat.energy_level}</td>
+          <td>{cat.temperament}</td>
         </tr>
-      );
-    });
-  };
+     )
+  );
 
   return (
     <div className='grid-container' >
       <table data-testid="grid">
         <thead>
           <tr>
+            <th></th>
             <th>Name</th>
             <th>Origin</th>
             <th>Energy Level</th>
+            <th>Temperament</th>
           </tr>
         </thead>
         <tbody>{renderCats()}</tbody>

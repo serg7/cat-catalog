@@ -5,7 +5,7 @@ import '../CommonPopup.css';
 import featuresWithLevel from './Features';
 import Cat from './Cat';
 
-export const DetailsPopup = (props: { show: boolean; setIsShown: any;  cat: Cat }): JSX.Element => {
+export const DetailsPopup = (props: { show: boolean; setIsShown: (isShown: boolean) => void;  cat: Cat }): JSX.Element => {
   const { cat, show, setIsShown } = props;
 
   const renderFeatureLevels = (cat: any): JSX.Element[] =>
