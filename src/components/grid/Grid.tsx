@@ -18,7 +18,6 @@ export const Grid = (): JSX.Element => {
 
   console.log(cats);
   
-
   useEffect(() => {
     (async () => {
       try {

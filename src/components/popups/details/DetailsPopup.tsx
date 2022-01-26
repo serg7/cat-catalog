@@ -27,7 +27,7 @@ export const DetailsPopup = (props: { show: boolean; setIsShown: (isShown: boole
             <div className="name">{cat.name}</div>
             <div className="origin">Origin: {cat.origin}</div>
           </div>
-          <img className="image" src={cat?.image?.url} />
+          <a href={cat?.cfa_url}><img className="image" src={cat?.image?.url} /></a>
         </div>
         <div className="levels">{renderFeatureLevels(cat)}</div>
       </div>
