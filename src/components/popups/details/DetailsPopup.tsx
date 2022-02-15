@@ -5,9 +5,10 @@ import '../CommonPopup.css';
 import featuresWithLevel from './Features';
 import Cat from './Cat';
 
+
 export const DetailsPopup = (props: { show: boolean; setIsShown: (isShown: boolean) => void;  cat: Cat }): JSX.Element => {
   const { cat, show, setIsShown } = props;
-
+   
   const renderFeatureLevels = (cat: any): JSX.Element[] =>
     featuresWithLevel.map((feature: string, index: number) => (
       <div className="feature-container" key={index}>
@@ -16,7 +17,7 @@ export const DetailsPopup = (props: { show: boolean; setIsShown: (isShown: boole
       </div>
     ));
 
-  return (
+    return (
     <div className={classNames('popup', { show })} id="modal" data-testid="details-popup">
       <span className="close" onClick={() => setIsShown(false)}>
         &times;

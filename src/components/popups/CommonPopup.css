@@ -55,7 +55,7 @@
   }
   
   .show {
-    display: block !important;
+    display: flex !important;
     opacity: 1 !important;
   }
 

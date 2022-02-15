@@ -8,15 +8,18 @@ import '../../App.css';
 
 const httpService = new HttpService();
 
-export const Grid = (): JSX.Element => {
+export const Grid = (props: { shown: boolean }): JSX.Element => {
   const [cats, setCats] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isDetailsPopupShown, setIsDetailsPopupShown] = useState(false);
   const [isErrorPopupShown, setIsErrorPopupShown] = useState(false);
   const [errorMessage, setErrorMessage] = useState('')
   const [cat, setCat] = useState({});
+  const { shown } = props;
 
   console.log(cats);
+  console.log(shown);
+  
   
   useEffect(() => {
     (async () => {
@@ -51,7 +54,7 @@ export const Grid = (): JSX.Element => {
   );
 
   return (
-    <div className='grid-container' >
+    <div className={classNames('grid-container', { show: shown, hide: !shown })} >
       <table data-testid="grid">
         <thead>
           <tr>
