@@ -1,25 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import classNames from 'classnames';
 import HttpService from '../../services/HttpService';
 import DetailsPopup from '../popups/details/DetailsPopup';
 import ErrorPopup from '../popups/error/ErrorPopup';
 import Cat from '../popups/details/Cat';
+import { ViewModeContext } from '../../App';
 import '../../App.css';
 
 const httpService = new HttpService();
 
-export const Grid = (props: { shown: boolean }): JSX.Element => {
+export const Grid = (): JSX.Element => {
+  const showTiles = useContext(ViewModeContext);
   const [cats, setCats] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isDetailsPopupShown, setIsDetailsPopupShown] = useState(false);
   const [isErrorPopupShown, setIsErrorPopupShown] = useState(false);
   const [errorMessage, setErrorMessage] = useState('')
   const [cat, setCat] = useState({});
-  const { shown } = props;
-
-  console.log(cats);
-  console.log(shown);
   
+  console.log(cats);  
   
   useEffect(() => {
     (async () => {
@@ -54,7 +53,7 @@ export const Grid = (props: { shown: boolean }): JSX.Element => {
   );
 
   return (
-    <div className={classNames('grid-container', { show: shown, hide: !shown })} >
+    <div className={classNames('grid-container', { show: showTiles, hide: !showTiles })} >
       <table data-testid="grid">
         <thead>
           <tr>

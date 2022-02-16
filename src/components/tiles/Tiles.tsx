@@ -1,13 +1,13 @@
-import React  from 'react';
+import React, { useContext }  from 'react';
 import classNames from 'classnames';
+import { ViewModeContext } from '../../App';
 
-export const Tiles = (props: { shown: boolean }): JSX.Element => {
-    const { shown } = props;
 
-    console.log('shown1', shown);
-    
+export const Tiles = (): JSX.Element => {
+    const showTiles = useContext(ViewModeContext);
+
     return (
-        <div className={classNames('tiles-container', { show: shown, hide: !shown })}>
+        <div className={classNames('tiles-container', { show: showTiles, hide: !showTiles })}>
             Tiles
         </div>
     )
